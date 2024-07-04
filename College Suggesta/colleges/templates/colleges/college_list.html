@@ -1,0 +1,77 @@
+<!-- books/templates/books/book_list.html -->
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+    <body>
+    <h1>All colleges</h1>
+    <form name="order_by" id="filer_by_id", action="" method="GET">
+        <label for="colleges">Filter By:</label>
+        <select name="colleges" id="college" type="submit" >
+            <option value="name">Name</option>
+            <option value="code">code</option>
+            <option value="hostel">hostel</option>
+            <option value="region">region</option>
+            <option value="high_sal">Salary</option>
+            <option value="placements">placements</option>
+            <option value="name high_sal">Name and Salary</option>
+            <option value="region high_sal">region and Salary</option>
+            <option value="region placements">region and placements</option>
+        </select>
+        <input type="submit">
+    </form>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Infra</th>
+            <th>Hostel</th>
+            <th>Region</th>
+            <th>Placements</th>
+            <th>Avg_sal</th>
+            <th>High_sal</th>
+            <th>nba</th>
+            <th>Branch</th>
+            <th>sc_boys</th>
+            <th>bc_d_boys</th>
+            <th>bc_c_girls</th>
+            <th>oc_girls</th>
+          </tr>
+            {% for college in object_list %}
+              <tr>
+                <td> {{ college.name }}</td>
+                <td> {{ college.code }}</td>
+                <td> {{ college.infra }}</td>
+                <td> {{ college.hostel }}</td>
+                <td> {{ college.region }}</td>
+                <td> {{ college.placements }}</td>
+                <td> {{ college.avg_sal }}</td>
+                <td> {{ college.high_sal }}</td>
+                <td> {{ college.nba_accredit }}</td>
+                <td> {{ college.branch_code }}</td>
+                <td> {{ college.sc_boys_rank }}</td>
+                <td> {{ college.bc_d_boys_rank }}</td>
+                <td> {{ college.bc_c_girls_rank }}</td>
+                <td> {{ college.oc_girls_rank }}</td>
+              </tr>
+          {% endfor %}
+        </table>
+    </body>
+</html>
